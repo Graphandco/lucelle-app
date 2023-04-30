@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        font-family: Open Sans, system-ui, sans-serif;
+        // font-family: Open Sans, system-ui, sans-serif;
+    }
+}
+svg {
+    max-height: 2rem;
+    width: auto;
+}
+.App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.liste-depenses {
+    flex-grow: 1;
+}
+.footer-nav a {
+    padding: 0.75rem;
+    position: relative;
+}
+.footer-nav a:not(:last-child):after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    height: 70%;
+    transform: translateY(-50%);
+    border-right: 1px solid rgb(51 65 85 / 1);
+}
+.footer-nav a.active {
+    background-color: rgb(51 65 85 / 1);
+    color: white;
+}
+.add-depense input::placeholder,
+.add-depense select {
+    font-size: 12px;
+    opacity: 0.6;
+    color: white;
+    font-weight: normal;
+}
