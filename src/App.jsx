@@ -10,6 +10,8 @@ import { AuthContextProvider } from "./context/AuthContext";
 import { FoodsContextProvider } from "./context/FoodsContext";
 import { NotesContextProvider } from "./context/NotesContext";
 import NotesPage from "./components/notes/NotesPage";
+import { MoviesContextProvider } from "./context/MoviesContext";
+import MoviesPage from "./components/movies/MoviesPage";
 
 function App() {
     return (
@@ -18,20 +20,29 @@ function App() {
                 <DepensesContextProvider>
                     <FoodsContextProvider>
                         <NotesContextProvider>
-                            <Header />
-                            <Routes>
-                                <Route path="/" element={<Home />} />
-                                <Route
-                                    path="/depenses"
-                                    element={<DepensesPage />}
-                                />
-                                <Route
-                                    path="/courses"
-                                    element={<CoursesPage />}
-                                />
-                                <Route path="/notes" element={<NotesPage />} />
-                            </Routes>
-                            <Footer />
+                            <MoviesContextProvider>
+                                <Header />
+                                <Routes>
+                                    <Route path="/" element={<Home />} />
+                                    <Route
+                                        path="/depenses"
+                                        element={<DepensesPage />}
+                                    />
+                                    <Route
+                                        path="/courses"
+                                        element={<CoursesPage />}
+                                    />
+                                    <Route
+                                        path="/notes"
+                                        element={<NotesPage />}
+                                    />
+                                    <Route
+                                        path="/movies"
+                                        element={<MoviesPage />}
+                                    />
+                                </Routes>
+                                <Footer />
+                            </MoviesContextProvider>
                         </NotesContextProvider>
                     </FoodsContextProvider>
                 </DepensesContextProvider>

@@ -38,7 +38,7 @@ const DepensesTab = ({ depenses, action }) => {
 
     return (
         <>
-            <div className="grid grid-cols-5 mt-3 liste-depenses">
+            <div className="grid grid-cols-5 my-3 liste-depenses">
                 <div className=" ">
                     <div className="uppercase text-xs font-semibold py-3 px-1 bg-slate-600 pl-3">
                         Date

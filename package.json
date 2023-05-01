@@ -12,6 +12,7 @@
     "@cloudinary/react": "^1.11.2",
     "@cloudinary/url-gen": "^1.10.0",
     "@tinymce/tinymce-react": "^4.3.0",
+    "axios": "^1.4.0",
     "daisyui": "^2.51.5",
     "firebase": "^9.19.1",
     "node-sass": "^8.0.0",

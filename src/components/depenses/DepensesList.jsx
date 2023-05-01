@@ -55,7 +55,7 @@ const DepensesList = () => {
         <>
             <AddDepense />
             <DepensesTab depenses={depensesEnCours} action="setFinished" />
-            <div className="stats shadow w-fit ml-auto mr-5 mb-20">
+            <div className="px-2 flex justify-end">
                 <DepensesCardRecap />
             </div>
 

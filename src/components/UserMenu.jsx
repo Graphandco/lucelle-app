@@ -35,8 +35,8 @@ const UserMenu = () => {
                     {user?.photoURL ? (
                         <img src={user.photoURL} alt="" />
                     ) : (
-                        <div className="w-full h-full grid place-items-center">
-                            <FaUserAlt />
+                        <div className="w-full h-full grid place-items-center ">
+                            <FaUserAlt className="text-gris" />
                         </div>
                     )}
                 </div>

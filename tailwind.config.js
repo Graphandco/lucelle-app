@@ -7,6 +7,9 @@ module.exports = {
     ],
     theme: {
         extend: {
+            spacing: {
+                "gap-0.5": "0.175rem",
+            },
             colors: {
                 gris: "#222F3E",
             },
@@ -20,6 +23,8 @@ module.exports = {
             },
             fontSize: {
                 "2xs": "0.6rem",
+                bigtext: "clamp(22px, calc(7px + 3vw), 2.5rem)",
+                movietitletext: "clamp(16px, calc(4px + 2vw), 1.25rem)",
                 // sm: '0.8rem',
                 // base: '1rem',
                 // xl: '1.25rem',

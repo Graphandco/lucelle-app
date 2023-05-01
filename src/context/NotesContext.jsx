@@ -26,7 +26,7 @@ export const NotesContextProvider = ({ children }) => {
         return () => unsubscribe();
     }, []);
 
-    console.log(notes);
+    // console.log(notes);
 
     return (
         <NotesContext.Provider value={{ notes }}>
