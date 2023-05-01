@@ -22,12 +22,12 @@ export const DepensesContextProvider = ({ children }) => {
                 depensesArr.push({ ...doc.data(), id: doc.id });
             });
             setDepenses(depensesArr);
-            console.log(depensesArr);
+            // console.log(depensesArr);
 
             const depensesEnCours = depensesArr.filter((depense) => {
                 return depense.finished === false ? depense : "";
             });
-            console.log(depensesEnCours);
+            // console.log(depensesEnCours);
 
             const payementsRegis = depensesEnCours.filter((depense) => {
                 return depense.payeur.includes("Régis") ? depense : "";

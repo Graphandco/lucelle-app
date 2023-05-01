@@ -7,19 +7,33 @@ import Footer from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
 import { DepensesContextProvider } from "./context/DepensesContext";
 import { AuthContextProvider } from "./context/AuthContext";
+import { FoodsContextProvider } from "./context/FoodsContext";
+import { NotesContextProvider } from "./context/NotesContext";
+import NotesPage from "./components/notes/NotesPage";
 
 function App() {
     return (
-        <div className="App">
+        <div className="App pb-10">
             <AuthContextProvider>
                 <DepensesContextProvider>
-                    <Header />
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/depenses" element={<DepensesPage />} />
-                        <Route path="/courses" element={<CoursesPage />} />
-                    </Routes>
-                    <Footer />
+                    <FoodsContextProvider>
+                        <NotesContextProvider>
+                            <Header />
+                            <Routes>
+                                <Route path="/" element={<Home />} />
+                                <Route
+                                    path="/depenses"
+                                    element={<DepensesPage />}
+                                />
+                                <Route
+                                    path="/courses"
+                                    element={<CoursesPage />}
+                                />
+                                <Route path="/notes" element={<NotesPage />} />
+                            </Routes>
+                            <Footer />
+                        </NotesContextProvider>
+                    </FoodsContextProvider>
                 </DepensesContextProvider>
             </AuthContextProvider>
         </div>

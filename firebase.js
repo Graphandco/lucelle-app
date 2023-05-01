@@ -5,13 +5,14 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-    databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
-    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-    storageBucket: import.meta.env.VITE_FIREBASE_STOCKAGE_BUCKET,
-    messagingSenderId: import.meta.env.VITE_FIREBASE_SENDER_ID,
-    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    apiKey: "AIzaSyCS6G8dOf7dV5OgOZ_1LtR6uzL5KnUAQqY",
+    authDomain: "graph-and-co-react.firebaseapp.com",
+    databaseURL:
+        "https://graph-and-co-react-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "graph-and-co-react",
+    storageBucket: "graph-and-co-react.appspot.com",
+    messagingSenderId: "675038107018",
+    appId: "1:675038107018:web:f949930d2f33017742a473",
 };
 
 // Initialize Firebase

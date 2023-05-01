@@ -25,33 +25,34 @@ const AddDepense = () => {
     };
     return (
         <div className="add-depense">
-            <div className="p-2 flex flex-wrap gap-2">
+            <div className="p-2 flex items-center flex-wrap gap-2">
                 <input
                     type="text"
                     placeholder="Nom"
-                    className="input input-bordered max-w-xs w-32"
+                    className="input input-sm input-bordered max-w-xs w-32"
                     onChange={(e) => setName(e.target.value)}
                     value={name}
                 />
                 <input
                     type="text"
                     placeholder="Montant"
-                    className="input input-bordered max-w-xs w-32"
+                    className="input input-sm input-bordered max-w-xs w-32"
                     onChange={(e) => setPrice(e.target.value)}
                     value={price}
                 />
                 <select
-                    className="select select-bordered max-w-xs"
+                    className="select select-sm select-bordered max-w-xs"
                     onChange={(e) => setPayeur(e.target.value)}
                     value={payeur}
                 >
                     <option>Qui a payé ?</option>
                     <option>Régis</option>
                     <option>Laurianne</option>
+                    <option>Both</option>
                 </select>
                 <button
                     onClick={addDepense}
-                    className="btn btn-xl btn-primary text-xl"
+                    className="btn btn-xl btn-primary btn-sm text-xl"
                 >
                     +
                 </button>

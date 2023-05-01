@@ -3,6 +3,7 @@ import { DepensesItems } from "../../context/DepensesContext";
 import { FaCheck, FaTrash } from "react-icons/fa";
 import { db } from "../../../firebase";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { image } from "@cloudinary/url-gen/qualifiers/source";
 
 const DepensesTab = ({ depenses, action }) => {
     // const { user, googleSignIn } = UserAuth();
@@ -37,14 +38,14 @@ const DepensesTab = ({ depenses, action }) => {
 
     return (
         <>
-            <div className="flex mt-5 liste-depenses">
-                <div className="grow ">
-                    <div className="uppercase text-xs font-semibold py-3 px-4 bg-slate-600">
+            <div className="grid grid-cols-5 mt-3 liste-depenses">
+                <div className=" ">
+                    <div className="uppercase text-xs font-semibold py-3 px-1 bg-slate-600 pl-3">
                         Date
                     </div>
                     {depenses.map((depense, index) => (
                         <div
-                            className="odd:bg-slate-700 py-2 px-4 h-10 flex items-center text-xs"
+                            className="odd:bg-slate-700 py-2 px-1 h-10 flex items-center text-xs pl-3"
                             key={index}
                         >
                             {new Date(
@@ -53,65 +54,82 @@ const DepensesTab = ({ depenses, action }) => {
                         </div>
                     ))}
                 </div>
-                <div className="grow">
-                    <div className="uppercase text-xs font-semibold py-3 px-4 bg-slate-600">
+                <div className=" ">
+                    <div className="uppercase text-xs font-semibold py-3 px-1 bg-slate-600">
                         Nom
                     </div>
                     {depenses.map((depense, index) => (
                         <div
-                            className="odd:bg-slate-700 py-2 px-4 h-10 flex items-center text-xs "
+                            className="odd:bg-slate-700 py-2 px-1 h-10 flex items-center text-xs "
                             key={index}
                         >
                             {depense.name}
                         </div>
                     ))}
                 </div>
-                <div className="grow">
-                    <div className="uppercase text-xs font-semibold py-3 px-4 bg-slate-600">
+                <div className="">
+                    <div className="uppercase text-xs font-semibold py-3 px-1 bg-slate-600">
                         Montant
                     </div>
                     {depenses.map((depense, index) => (
                         <div
-                            className="odd:bg-slate-700 py-2 px-4 h-10 flex items-center text-xs "
+                            className="odd:bg-slate-700 py-2 px-1 h-10 flex items-center text-xs "
                             key={index}
                         >
                             {depense.prix} €
                         </div>
                     ))}
                 </div>
-                <div className="grow ">
-                    <div className="uppercase text-xs font-semibold py-3 px-4 bg-slate-600">
+                <div className=" ">
+                    <div className="uppercase text-xs font-semibold py-3 px-1 bg-slate-600">
                         Payeur
                     </div>
                     {depenses.map((depense, index) => (
                         <div
-                            className="odd:bg-slate-700 py-2 px-4 h-10 flex items-center text-xs "
+                            className="odd:bg-slate-700 py-2 px-1 h-10 flex items-center text-xs "
                             key={index}
                         >
-                            {depense.payeur}
+                            {depense.payeur === "Laurianne" && (
+                                <img
+                                    className="w-8 rounded-[50%]"
+                                    src="/laurianne.jpg"
+                                />
+                            )}
+                            {depense.payeur === "Régis" && (
+                                <img
+                                    className="w-8 rounded-[50%]"
+                                    src="/regis.jpg"
+                                />
+                            )}
+                            {depense.payeur === "Both" && (
+                                <img
+                                    className="w-8 rounded-[50%]"
+                                    src="/badger.png"
+                                />
+                            )}
                         </div>
                     ))}
                 </div>
-                <div className="grow ">
-                    <div className="uppercase text-xs font-semibold py-3 px-4 bg-slate-600">
+                <div className=" ">
+                    <div className="uppercase text-xs font-semibold py-3 px-1 bg-slate-600">
                         Traiter
                     </div>
                     {depenses.map((depense, index) => (
                         <div
-                            className="odd:bg-slate-700 py-2 px-4 h-10 flex items-center text-xs"
+                            className="odd:bg-slate-700 py-2 px-1 h-10 flex items-center text-xs"
                             key={index}
                         >
                             <FaCheck
                                 className={` ${
                                     depense.finished === true
-                                        ? "text-lime-600"
-                                        : null
+                                        ? "text-lime-600 cursor-pointer hover:text-white"
+                                        : " cursor-pointer hover:text-white"
                                 }`}
                                 onClick={() => handleFinished(depense.id)}
                             />
                             {action === "delete" && (
                                 <FaTrash
-                                    className="ml-4"
+                                    className="ml-4 cursor-pointer hover:text-white"
                                     onClick={() =>
                                         handleDelete(depense.id, depense.name)
                                     }

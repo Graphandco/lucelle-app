@@ -31,7 +31,7 @@ const UserMenu = () => {
     return (
         <div className="dropdown dropdown-end">
             <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
-                <div className="w-6 rounded-full">
+                <div className="w-8 rounded-full">
                     {user?.photoURL ? (
                         <img src={user.photoURL} alt="" />
                     ) : (

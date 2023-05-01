@@ -1,7 +1,7 @@
 {
-    "name": "Shopping List - Graph and Co",
-    "short_name": "Shopping List",
-    "description": "Gestion des listes de courses",
+    "name": "Lucelle App",
+    "short_name": "Lucelle App",
+    "description": "Gestion de la Lucelle",
     "theme_color": "#e2e2e2",
     "background_color": "#1e202a",
     "display": "standalone",
