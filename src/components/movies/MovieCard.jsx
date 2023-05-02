@@ -2,7 +2,7 @@ import React from "react";
 import MovieRate from "./MovieRate";
 
 const MovieCard = ({ movie }) => {
-    console.log(movie);
+    // console.log(movie);
     const { title, overview, release_date } = movie;
 
     const year = release_date.slice(0, 4);

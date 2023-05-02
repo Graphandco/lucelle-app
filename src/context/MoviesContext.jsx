@@ -8,6 +8,7 @@ const MoviesContext = createContext();
 
 export const MoviesContextProvider = ({ children }) => {
     const [movies, setMovies] = useState();
+    const [myMovies, setMyMovies] = useState([]);
 
     useEffect(() => {
         const handleUpcoming = async () => {
@@ -22,28 +23,29 @@ export const MoviesContextProvider = ({ children }) => {
         };
         handleUpcoming();
     }, []);
-    // useEffect(() => {
-    //     const q = query(
-    //         // orderBy("createdAt", "desc")
-    //         collection(db, "notes")
-    //         // orderBy("name", "asc")
-    //     );
-    //     const unsubscribe = onSnapshot(q, (querySnapshot) => {
-    //         let notesArr = [];
-    //         querySnapshot.forEach((doc) => {
-    //             notesArr.push({ ...doc.data(), id: doc.id });
-    //         });
-    //         setNotes(notesArr);
-    //         // console.log(foodsArr);
-    //         /**/
-    //     });
-    //     return () => unsubscribe();
-    // }, []);
+
+    useEffect(() => {
+        const q = query(
+            // orderBy("createdAt", "desc")
+            collection(db, "movies")
+            // orderBy("name", "asc")
+        );
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            let moviesArr = [];
+            querySnapshot.forEach((doc) => {
+                moviesArr.push({ ...doc.data(), id: doc.id });
+            });
+            setMyMovies(moviesArr);
+            // console.log(foodsArr);
+            /**/
+        });
+        return () => unsubscribe();
+    }, []);
 
     // console.log(notes);
 
     return (
-        <MoviesContext.Provider value={{ movies }}>
+        <MoviesContext.Provider value={{ movies, myMovies }}>
             {children}
         </MoviesContext.Provider>
     );
