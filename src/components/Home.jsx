@@ -14,7 +14,7 @@ const Home = () => {
         <div className="flex flex-wrap gap-2">
             {/* <CountdownTimer targetDate={dateTimeAfterThreeDays} /> */}
 
-            <div className="bg-slate-700 rounded-box col-span-3 row-span-3 mx-2 flex w-72 flex-shrink-0 flex-col justify-center gap-4 p-4 shadow-xl xl:mx-0 xl:w-full ">
+            <div className="bg-slate-700 rounded-box col-span-3 row-span-3 mx-2 flex w-72 flex-shrink-0 flex-col justify-center gap-4 p-4 shadow-xl">
                 <div className="px-6 pt-6">
                     <div className="flex gap-1">
                         <span className="text-xl font-extrabold ">

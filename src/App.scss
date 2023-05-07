@@ -18,9 +18,10 @@ svg {
     display: flex;
     flex-direction: column;
 }
-// .liste-depenses {
-//     flex-grow: 1;
-// }
+.title-xl {
+    @apply uppercase text-white font-bold text-center mb-5;
+    font-size: clamp(22px, calc(7px + 3vw), 2.5rem);
+}
 .footer-nav a {
     padding: 0.75rem;
     position: relative;

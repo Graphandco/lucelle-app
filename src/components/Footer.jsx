@@ -36,12 +36,11 @@ const Footer = () => {
                         {/* <span className="uppercase text-2xs">Notes</span> */}
                     </div>
                 </NavLink>
-                <NavLink to="/movies">
+                {/* <NavLink to="/movies">
                     <div className="flex items-center justify-center gap-2 py-1">
                         <BiMoviePlay className="" />
-                        {/* <span className="uppercase text-2xs">Films</span> */}
                     </div>
-                </NavLink>
+                </NavLink> */}
             </nav>
         </footer>
     );

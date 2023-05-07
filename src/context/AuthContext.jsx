@@ -73,6 +73,7 @@ export const AuthContextProvider = ({ children }) => {
                 googleSignIn,
                 zzzz,
                 isUserAdmin,
+                signInWithEmailAndPassword,
             }}
         >
             {children}

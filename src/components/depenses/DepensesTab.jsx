@@ -45,7 +45,7 @@ const DepensesTab = ({ depenses, action }) => {
                     </div>
                     {depenses.map((depense, index) => (
                         <div
-                            className="odd:bg-slate-700 py-2 px-1 h-10 flex items-center text-xs pl-3"
+                            className="odd:bg-slate-700 py-2 px-1 h-10 flex items-center text-2xs pl-3"
                             key={index}
                         >
                             {new Date(
@@ -54,13 +54,13 @@ const DepensesTab = ({ depenses, action }) => {
                         </div>
                     ))}
                 </div>
-                <div className=" ">
-                    <div className="uppercase text-xs font-semibold py-3 px-1 bg-slate-600">
+                <div className="">
+                    <div className="uppercase text-xs font-semibold py-3 px-2 bg-slate-600">
                         Nom
                     </div>
                     {depenses.map((depense, index) => (
                         <div
-                            className="odd:bg-slate-700 py-2 px-1 h-10 flex items-center text-xs "
+                            className="odd:bg-slate-700 py-2 px-2 h-10 flex items-center text-xs "
                             key={index}
                         >
                             {depense.name}

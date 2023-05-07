@@ -11,6 +11,24 @@ export const MoviesContextProvider = ({ children }) => {
     const [myMovies, setMyMovies] = useState([]);
 
     useEffect(() => {
+        const q = query(
+            // orderBy("createdAt", "desc")
+            collection(db, "movies")
+            // orderBy("name", "asc")
+        );
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            let moviesArr = [];
+            querySnapshot.forEach((doc) => {
+                moviesArr.push({ ...doc.data(), id: doc.id });
+            });
+            setMyMovies(moviesArr[0]);
+            // console.log(foodsArr);
+            /**/
+        });
+        return () => unsubscribe();
+    }, []);
+
+    useEffect(() => {
         const handleUpcoming = async () => {
             try {
                 const upComingMoviesList = await Axios.get(
@@ -22,24 +40,6 @@ export const MoviesContextProvider = ({ children }) => {
             }
         };
         handleUpcoming();
-    }, []);
-
-    useEffect(() => {
-        const q = query(
-            // orderBy("createdAt", "desc")
-            collection(db, "movies")
-            // orderBy("name", "asc")
-        );
-        const unsubscribe = onSnapshot(q, (querySnapshot) => {
-            let moviesArr = [];
-            querySnapshot.forEach((doc) => {
-                moviesArr.push({ ...doc.data(), id: doc.id });
-            });
-            setMyMovies(moviesArr);
-            // console.log(foodsArr);
-            /**/
-        });
-        return () => unsubscribe();
     }, []);
 
     // console.log(notes);

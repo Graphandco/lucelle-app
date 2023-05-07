@@ -50,11 +50,8 @@ const AddDepense = () => {
                     <option>Laurianne</option>
                     <option>Both</option>
                 </select>
-                <button
-                    onClick={addDepense}
-                    className="btn btn-xl btn-primary btn-sm text-xl"
-                >
-                    +
+                <button onClick={addDepense} className="btn btn-primary btn-sm">
+                    Ajouter
                 </button>
             </div>
         </div>

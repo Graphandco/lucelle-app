@@ -3,11 +3,30 @@ import DepensesArchive from "./DepensesArchives";
 import { useState } from "react";
 
 const DepensesPage = () => {
-    const [isArchive, setIsArchive] = useState(true);
+    const [isArchive, setIsArchive] = useState(false);
 
     return (
         <>
-            <div className="flex items-center justify-end gap-2 py-2 mx-5 text-sm uppercase">
+            <div className="title-xl bigtext">Dépenses</div>
+            <div className="tabs flex justify-center mb-3 mx-2">
+                <a
+                    className={`tab tab-bordered ${
+                        !isArchive ? "tab-active" : ""
+                    }`}
+                    onClick={() => setIsArchive(false)}
+                >
+                    En cours
+                </a>
+                <a
+                    className={`tab tab-bordered ${
+                        isArchive ? "tab-active" : ""
+                    }`}
+                    onClick={() => setIsArchive(true)}
+                >
+                    Archives
+                </a>
+            </div>
+            {/* <div className="flex items-center justify-end gap-2 py-2 mx-5 text-sm uppercase">
                 <span>En cours</span>
                 <input
                     type="checkbox"
@@ -16,8 +35,8 @@ const DepensesPage = () => {
                     onChange={() => setIsArchive(!isArchive)}
                 />
                 <span>Archives</span>
-            </div>
-            {isArchive === true ? <DepensesList /> : <DepensesArchive />}
+            </div> */}
+            {isArchive === true ? <DepensesArchive /> : <DepensesList />}
         </>
     );
 };

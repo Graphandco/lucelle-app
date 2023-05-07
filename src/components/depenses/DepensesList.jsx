@@ -1,13 +1,15 @@
 import { DepensesItems } from "../../context/DepensesContext";
 import { UserAuth } from "../../context/AuthContext";
-import { FaCheck } from "react-icons/fa";
+import { FaMinus, FaPlus } from "react-icons/fa";
 import AddDepense from "./AddDepense";
 import DepensesTab from "./DepensesTab";
 import DepensesCardRecap from "./DepensesCardRecap";
+import { useState } from "react";
 
 const DepensesList = () => {
     const { depenses } = DepensesItems();
     const { user, googleSignIn } = UserAuth();
+    const [isAddActive, setIsAddActive] = useState(false);
 
     depenses.sort((a, b) =>
         a.createdAt.seconds > b.createdAt.seconds ? 1 : -1
@@ -53,8 +55,16 @@ const DepensesList = () => {
 
     return (
         <>
-            <AddDepense />
             <DepensesTab depenses={depensesEnCours} action="setFinished" />
+
+            <button
+                className="btn btn-primary btn-sm btn-circle mx-auto mb-5"
+                onClick={() => setIsAddActive(!isAddActive)}
+            >
+                {isAddActive ? <FaMinus /> : <FaPlus />}
+            </button>
+            {isAddActive && <AddDepense />}
+
             <div className="px-2 flex justify-end">
                 <DepensesCardRecap />
             </div>
