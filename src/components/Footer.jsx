@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer className="fixed z-10 bottom-0 w-full bg-[#1B2335]">
             <nav className="w-full grid grid-flow-col footer-nav">
-                <NavLink
+                {/* <NavLink
                     to="/"
                     className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "active" : ""
@@ -15,10 +15,15 @@ const Footer = () => {
                 >
                     <div className="flex items-center justify-center gap-2 py-1">
                         <FaHome className="" />
-                        {/* <span className="uppercase text-2xs">Accueil</span> */}
+                        <span className="uppercase text-2xs">Accueil</span>
                     </div>
-                </NavLink>
-                <NavLink to="/courses">
+                </NavLink> */}
+                <NavLink
+                    to="/"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "active" : ""
+                    }
+                >
                     <div className="flex items-center justify-center gap-2 py-1">
                         <FaShoppingCart className="" />
                         {/* <span className="uppercase text-2xs">Courses</span> */}

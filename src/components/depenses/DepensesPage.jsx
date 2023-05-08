@@ -7,7 +7,9 @@ const DepensesPage = () => {
 
     return (
         <>
-            <div className="title-xl bigtext">Dépenses</div>
+            <div className="title-xl bigtext">
+                <span>Dépenses</span>
+            </div>
             <div className="tabs flex justify-center mb-3 mx-2">
                 <a
                     className={`tab tab-bordered ${

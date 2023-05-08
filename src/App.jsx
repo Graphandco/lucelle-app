@@ -24,14 +24,11 @@ function App() {
                             <MoviesContextProvider>
                                 <Header />
                                 <Routes>
-                                    <Route path="/" element={<Home />} />
+                                    {/* <Route path="/" element={<Home />} /> */}
+                                    <Route path="/" element={<CoursesPage />} />
                                     <Route
                                         path="/depenses"
                                         element={<DepensesPage />}
-                                    />
-                                    <Route
-                                        path="/courses"
-                                        element={<CoursesPage />}
                                     />
                                     <Route
                                         path="/notes"

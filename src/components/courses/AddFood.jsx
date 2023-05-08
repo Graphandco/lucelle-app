@@ -32,7 +32,10 @@ const AddFood = () => {
     return (
         <div>
             {/* The button to open modal */}
-            <label htmlFor="my-modal-4" className="btn btn-primary">
+            <label
+                htmlFor="my-modal-4"
+                className="btn btn-primary btn-sm btn-circle"
+            >
                 <FaPlus />
             </label>
 

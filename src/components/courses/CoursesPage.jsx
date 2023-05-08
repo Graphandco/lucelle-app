@@ -54,7 +54,9 @@ const CoursesPage = () => {
 
     return (
         <>
-            <div className="title-xl bigtext">Courses</div>
+            <div className="title-xl bigtext">
+                <span>Courses</span>
+            </div>
             <div className="tabs flex justify-center mb-3 mx-2">
                 <a
                     className={`tab tab-bordered ${

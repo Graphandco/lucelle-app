@@ -29,13 +29,16 @@ export default function NotesPage() {
     };
 
     return (
-        <>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-2">
+        <div className="pb-10">
+            <div className="title-xl bigtext">
+                <span>Notes</span>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 p-2">
                 {notes.map((note, index) => (
-                    <div className="card bg-gris mt-5 shadow-xl" key={index}>
-                        <div className="card-body p-5 pt-2 pr-2">
+                    <div className="card bg-gris shadow-xl" key={index}>
+                        <div className="card-body pt-2 pb-2 pr-2 pl-3">
                             <div className="card-actions justify-end">
-                                <button className="btn btn-square btn-sm">
+                                <button className="btn btn-square btn-xs">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         className="h-6 w-6"
@@ -54,6 +57,7 @@ export default function NotesPage() {
                                 </button>
                             </div>
                             <div
+                                className="text-sm"
                                 dangerouslySetInnerHTML={{
                                     __html: note.content,
                                 }}
@@ -100,6 +104,6 @@ export default function NotesPage() {
                     </button>
                 </div>
             </div>
-        </>
+        </div>
     );
 }

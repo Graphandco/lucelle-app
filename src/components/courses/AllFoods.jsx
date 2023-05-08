@@ -35,12 +35,15 @@ const AllFoods = () => {
 
     return (
         <div>
-            <input
-                type="text"
-                placeholder="Rechercher..."
-                className="input input-sm input-bordered max-w-xs w-64 mb-2 ml-2"
-                onChange={(e) => setSearchText(e.target.value)}
-            />
+            <div className="flex items-center justify-between mt-2 mb-5 mx-2">
+                <input
+                    type="text"
+                    placeholder="Rechercher..."
+                    className="input input-sm input-bordered max-w-xs w-32"
+                    onChange={(e) => setSearchText(e.target.value)}
+                />
+                <AddFood />
+            </div>
 
             <div className="foods-not-in-cart">
                 {catList &&
@@ -88,7 +91,6 @@ const AllFoods = () => {
                 </>
             )}
             <div className="p-2 text-center flex justify-center gap-2">
-                <AddFood />
                 <EditFood edit={edit} setEdit={setEdit} />
             </div>
         </div>

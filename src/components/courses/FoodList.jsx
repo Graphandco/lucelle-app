@@ -27,12 +27,12 @@ const FoodList = ({
                     <h2 className="text-white text-lg text-center p-2">
                         Connectez-vous pour accéder à votre liste de courses
                     </h2>
-                    <button
+                    {/* <button
                         className="btn btn-primary"
                         onClick={handleGoogleSignIn}
                     >
                         <span>Connexion</span>
-                    </button>
+                    </button> */}
                 </div>
             )}
             {user && catList.length > 0 && (
@@ -70,7 +70,7 @@ const FoodList = ({
             {user && foodNotInCart.length > 0 && (
                 <>
                     <div className="food-in-cart mt-20">
-                        <h2 className="bg-slate-700 p-2 mb-5 text-white font-semibold">
+                        <h2 className="bg-slate-300 text-base-300 p-2 mb-5 font-semibold font-title">
                             Déjà dans le panier
                         </h2>
 
@@ -87,7 +87,7 @@ const FoodList = ({
                 </>
             )}
             {user && foodToBuy.length === 0 ? (
-                <div className="flex flex-col items-center justify-center gap-8 mt-10 ">
+                <div className="flex flex-col items-center justify-center gap-8 mt-5 mx-2 ">
                     <img
                         className="w-[300px] max-w-[100%]"
                         src="empty-cart.png"
@@ -97,7 +97,7 @@ const FoodList = ({
 
                     <button
                         className="btn btn-primary"
-                        onClick={() => setIsInventaire(false)}
+                        onClick={() => setIsInventaire(true)}
                     >
                         <span>Ajouter</span>
                     </button>
