@@ -68,9 +68,12 @@ const UserMenu = () => {
                     <>
                         <li>
                             <span className="text-primary pointer-events-none">
-                                {/* {user?.displayName} */}
-                                {user?.email}
+                                {user?.displayName}
+                                {/* {user?.email} */}
                             </span>
+                        </li>
+                        <li>
+                            <Link to="/profil">Profil</Link>
                         </li>
                         <li>
                             <span className="opacity-50" onClick={handleLogout}>

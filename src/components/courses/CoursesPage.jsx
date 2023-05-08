@@ -12,7 +12,7 @@ const CoursesPage = () => {
     const { foods } = FoodItems();
     const { user, googleSignIn } = UserAuth();
 
-    const [isInventaire, setIsInventaire] = useState(true);
+    const [isInventaire, setIsInventaire] = useState(false);
 
     let foodToBuy = foods.filter(function (food) {
         return food.tobuyforusers?.includes(user?.uid) ? food : "";
@@ -53,8 +53,29 @@ const CoursesPage = () => {
     };
 
     return (
-        <div className="pb-20">
-            <div className="flex items-center justify-end gap-2 py-2 mx-5 text-sm uppercase">
+        <>
+            <div className="title-xl bigtext">Courses</div>
+            <div className="tabs flex justify-center mb-3 mx-2">
+                <a
+                    className={`tab tab-bordered ${
+                        !isInventaire ? "tab-active" : ""
+                    }`}
+                    onClick={() => setIsInventaire(false)}
+                >
+                    Liste
+                </a>
+                <a
+                    className={`tab tab-bordered ${
+                        isInventaire ? "tab-active" : ""
+                    }`}
+                    onClick={() => setIsInventaire(true)}
+                >
+                    Inventaire
+                </a>
+            </div>
+
+            <div className="pb-20">
+                {/* <div className="flex items-center justify-end gap-2 py-2 mx-5 text-sm uppercase">
                 <span>Liste</span>
                 <input
                     type="checkbox"
@@ -63,21 +84,22 @@ const CoursesPage = () => {
                     onChange={() => setIsInventaire(!isInventaire)}
                 />
                 <span>Inventaire</span>
+            </div> */}
+
+                {!isInventaire && (
+                    <FoodList
+                        catList={catList}
+                        foodInCart={foodInCart}
+                        foodNotInCart={foodNotInCart}
+                        foodToBuy={foodToBuy}
+                        removeFoodToBuy={removeFoodToBuy}
+                        setIsInventaire={setIsInventaire}
+                    />
+                )}
+
+                {isInventaire && <AllFoods />}
             </div>
-
-            {isInventaire && (
-                <FoodList
-                    catList={catList}
-                    foodInCart={foodInCart}
-                    foodNotInCart={foodNotInCart}
-                    foodToBuy={foodToBuy}
-                    removeFoodToBuy={removeFoodToBuy}
-                    setIsInventaire={setIsInventaire}
-                />
-            )}
-
-            {!isInventaire && <AllFoods />}
-        </div>
+        </>
     );
 };
 

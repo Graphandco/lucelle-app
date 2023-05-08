@@ -12,6 +12,7 @@ import { NotesContextProvider } from "./context/NotesContext";
 import NotesPage from "./components/notes/NotesPage";
 import { MoviesContextProvider } from "./context/MoviesContext";
 import MoviesPage from "./components/movies/MoviesPage";
+import ProfilPage from "./components/profil/ProfilPage";
 
 function App() {
     return (
@@ -39,6 +40,10 @@ function App() {
                                     <Route
                                         path="/movies"
                                         element={<MoviesPage />}
+                                    />
+                                    <Route
+                                        path="/profil"
+                                        element={<ProfilPage />}
                                     />
                                 </Routes>
                                 <Footer />

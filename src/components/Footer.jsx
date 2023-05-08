@@ -30,7 +30,7 @@ const Footer = () => {
                         {/* <span className="uppercase text-2xs">Dépenses</span> */}
                     </div>
                 </NavLink>
-                <NavLink to="/notes">
+                <NavLink to="notes">
                     <div className="flex items-center justify-center gap-2 py-1">
                         <BsCardChecklist className="" />
                         {/* <span className="uppercase text-2xs">Notes</span> */}
