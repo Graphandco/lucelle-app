@@ -3,10 +3,9 @@ import { storage } from "../../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { FaUpload } from "react-icons/fa";
 
-function Upload({ avatarURL, setAvatarURL }) {
+function Upload({ setAvatarURL }) {
     // State to store uploaded file
     const [file, setFile] = useState(""); // progress
-    const [showPreview, setShowPreview] = useState(false);
 
     const [percent, setPercent] = useState(0); // Handle file upload event and update state
     function handleChange(event) {
@@ -55,14 +54,7 @@ function Upload({ avatarURL, setAvatarURL }) {
                 value={percent}
                 max="100"
             ></progress>
-            <div className="text-primary">{percent}%</div>
-            {showPreview && (
-                <div className="avatar">
-                    <div className="w-8 rounded-full">
-                        <img src={avatarURL} />
-                    </div>
-                </div>
-            )}
+            <div className="text-primary mb-2 font-semibold">{percent}%</div>
         </div>
     );
 }

@@ -3,7 +3,7 @@
     "short_name": "Lucelle App",
     "description": "Gestion de la Lucelle",
     "theme_color": "#e2e2e2",
-    "background_color": "#1e202a",
+    "background_color": "#0F162A",
     "display": "standalone",
     "scope": "/",
     "start_url": ".",

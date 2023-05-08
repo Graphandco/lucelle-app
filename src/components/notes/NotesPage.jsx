@@ -65,6 +65,7 @@ export default function NotesPage() {
             <div className="p-2 w-[32rem] mx-auto max-w-[100%]">
                 <Editor
                     onInit={(evt, editor) => (editorRef.current = editor)}
+                    apiKey="tx6iklbc6lfmfy0ag6z7zhcutvai759jy4d9cf4lx8y75tw2"
                     // initialValue="<p>This is the initial content of the editor.</p>"
                     init={{
                         height: 300,
