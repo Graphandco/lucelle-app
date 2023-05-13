@@ -9,16 +9,7 @@ const FoodList = ({
     removeFoodToBuy,
     setIsInventaire,
 }) => {
-    const { user, googleSignIn } = UserAuth();
-
-    const handleGoogleSignIn = async (e) => {
-        e.preventDefault();
-        try {
-            await googleSignIn();
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    const { user } = UserAuth();
 
     return (
         <>
@@ -27,21 +18,10 @@ const FoodList = ({
                     <h2 className="text-white text-lg text-center p-2">
                         Connectez-vous pour accéder à votre liste de courses
                     </h2>
-                    {/* <button
-                        className="btn btn-primary"
-                        onClick={handleGoogleSignIn}
-                    >
-                        <span>Connexion</span>
-                    </button> */}
                 </div>
             )}
             {user && catList.length > 0 && (
                 <>
-                    {/* <div className="px-2 py-10 bg-[url('/panier.jpg')] bg-cover bg-center">
-                        <h1 className="text-center text-white text-xl font-title font-bold">
-                            Mon panier
-                        </h1>
-                    </div> */}
                     <div className="foods-not-in-cart">
                         {catList.map((cat) => (
                             <div key={cat} className="cat-item">
