@@ -57,7 +57,7 @@ const CoursesPage = () => {
             <div className="title-xl bigtext">
                 <span>Courses</span>
             </div>
-            <div className="tabs flex justify-center mb-3 mx-2">
+            <div className="tabs flex justify-center mb-3 p-2 sticky top-[50px] bg-[#0F162A] z-10">
                 <a
                     className={`tab tab-bordered ${
                         !isInventaire ? "tab-active" : ""
@@ -77,17 +77,6 @@ const CoursesPage = () => {
             </div>
 
             <div className="pb-20">
-                {/* <div className="flex items-center justify-end gap-2 py-2 mx-5 text-sm uppercase">
-                <span>Liste</span>
-                <input
-                    type="checkbox"
-                    className="toggle scale-[-1]"
-                    checked={isInventaire}
-                    onChange={() => setIsInventaire(!isInventaire)}
-                />
-                <span>Inventaire</span>
-            </div> */}
-
                 {!isInventaire && (
                     <FoodList
                         catList={catList}
