@@ -67,7 +67,7 @@ const DepensesList = () => {
                 />
                 <span className="text-sm">doit</span>
                 <div className="font-bold text-xl text-white">
-                    {difference} €
+                    {difference < 0 ? difference * -1 : difference} €
                 </div>
                 <span className="text-sm">à</span>
                 <img
