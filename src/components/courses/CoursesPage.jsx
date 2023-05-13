@@ -57,7 +57,7 @@ const CoursesPage = () => {
             <div className="title-xl bigtext">
                 <span>Courses</span>
             </div>
-            <div className="tabs flex justify-center mb-3 p-2 sticky top-[50px] bg-[#0F162A] z-10">
+            <div className="tabs flex justify-center mb-3 p-2 sticky top-[45px] bg-[#0F162A] z-10">
                 <a
                     className={`tab tab-bordered ${
                         !isInventaire ? "tab-active" : ""

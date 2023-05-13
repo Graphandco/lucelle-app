@@ -35,11 +35,11 @@ const AllFoods = () => {
 
     return (
         <div>
-            <div className="flex items-center justify-between mt-2 mb-5 mx-2">
+            <div className="flex items-center justify-center gap-5 mt-2 mb-5 p-2 sticky top-[90px] bg-[#0F162A] z-10">
                 <input
                     type="text"
                     placeholder="Rechercher..."
-                    className="input input-sm input-bordered max-w-xs w-32"
+                    className="input input-bordered max-w-xs w-52"
                     onChange={(e) => setSearchText(e.target.value)}
                 />
                 <AddFood />
