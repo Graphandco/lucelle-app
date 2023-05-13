@@ -77,7 +77,7 @@ const DepensesList = () => {
                 {/* {difference > 0 ? "Laurianne doit" : "Régis doit"} */}
             </div>
             <button
-                className="btn btn-primary btn-sm btn-circle mx-auto mb-5"
+                className="btn btn-primary btn-circle mx-auto mb-5 text-xl"
                 onClick={() => setIsAddActive(!isAddActive)}
             >
                 {isAddActive ? <FaMinus /> : <FaPlus />}

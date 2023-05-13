@@ -1,5 +1,6 @@
 import ShoppingItem from "./ShoppingItem";
 import { UserAuth } from "../../context/AuthContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 const FoodList = ({
     catList,
@@ -29,18 +30,20 @@ const FoodList = ({
                                     {cat}
                                 </h2>
                                 <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 mx-2 mb-5">
-                                    {foodInCart
-                                        .filter(function (food) {
-                                            return food.category === cat;
-                                        })
-                                        .map((food, index) => (
-                                            <ShoppingItem
-                                                key={index}
-                                                food={food}
-                                                list="all"
-                                                actionFood="incart"
-                                            />
-                                        ))}
+                                    <AnimatePresence>
+                                        {foodInCart
+                                            .filter(function (food) {
+                                                return food.category === cat;
+                                            })
+                                            .map((food, index) => (
+                                                <ShoppingItem
+                                                    key={index}
+                                                    food={food}
+                                                    list="all"
+                                                    actionFood="incart"
+                                                />
+                                            ))}
+                                    </AnimatePresence>
                                 </div>
                             </div>
                         ))}

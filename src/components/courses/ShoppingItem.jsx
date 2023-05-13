@@ -5,6 +5,7 @@ import { db } from "../../../firebase";
 import { ReactSVG } from "react-svg";
 import { updateDoc, deleteDoc, doc } from "firebase/firestore";
 import { UserAuth } from "../../context/AuthContext";
+import { motion } from "framer-motion";
 const ShoppingItem = ({ food, actionFood, edit }) => {
     const { id, name, image, incart, tobuy, tobuyforusers, incartforusers } =
         food;
@@ -70,45 +71,41 @@ const ShoppingItem = ({ food, actionFood, edit }) => {
     };
 
     return (
-        <>
-            <div
-                //aspect-[1.2/1]
-                //before:content-[''] before:absolute before:inset-0 before:z-0 before:rounded-[15px] ${bgColor} before:opacity-10
-                className={`bg-slate-800 rounded-[15px] shadow-xl py-4 px-1 flex flex-col justify-center gap-2 text-center relative cursor-pointer  ${
-                    tobuy === true || (incart === true && "opacity-30")
-                }`}
-                onClick={() => updateFood(food.id)}
-            >
-                {/* <div onClick={handleUserInCart} className="btn btn-secondary">
+        <motion.div
+            //aspect-[1.2/1]
+            //before:content-[''] before:absolute before:inset-0 before:z-0 before:rounded-[15px] ${bgColor} before:opacity-10
+            className={`bg-slate-800 rounded-[15px] shadow-xl py-4 px-1 flex flex-col justify-center gap-2 text-center relative cursor-pointer  ${
+                tobuy === true || (incart === true && "opacity-30")
+            }`}
+            onClick={() => updateFood(food.id)}
+        >
+            {/* <div onClick={handleUserInCart} className="btn btn-secondary">
                     Click
                 </div> */}
-                {edit && (
-                    <div className="edit-food absolute inset-0 flex justify-around items-center p-2 bg-slate-800/75 z-10 text-white text-xl">
-                        <div className="edit">
-                            <FaEdit />
-                        </div>
-                        <div className="delete">
-                            <FaTrash onClick={() => deleteFood(id)} />
-                        </div>
+            {edit && (
+                <div className="edit-food absolute inset-0 flex justify-around items-center p-2 bg-slate-800/75 z-10 text-white text-xl">
+                    <div className="edit">
+                        <FaEdit />
                     </div>
-                )}
-                {/* <img className="h-[2rem]" src={Kiwi} alt="Fruit" /> */}
-                <div className="flex flex-col content-center gap-1 relative z-1">
-                    <ReactSVG
-                        className="h-[2rem] w-auto mx-auto"
-                        src={`/food/${image}.svg`}
-                    />
-                    <div className="text-xs font-semibold capitalize ">
-                        {name}
+                    <div className="delete">
+                        <FaTrash onClick={() => deleteFood(id)} />
                     </div>
                 </div>
-                {/* {list === "all" ? (
+            )}
+            {/* <img className="h-[2rem]" src={Kiwi} alt="Fruit" /> */}
+            <div className="flex flex-col content-center gap-1 relative z-1">
+                <ReactSVG
+                    className="h-[2rem] w-auto mx-auto"
+                    src={`/food/${image}.svg`}
+                />
+                <div className="text-xs font-semibold capitalize ">{name}</div>
+            </div>
+            {/* {list === "all" ? (
                     <BiCartAdd className="ml-auto text-xl opacity-40" />
                 ) : (
                     <MdShoppingCartCheckout className="ml-auto text-xl opacity-40" />
                 )} */}
-            </div>
-        </>
+        </motion.div>
     );
 };
 
