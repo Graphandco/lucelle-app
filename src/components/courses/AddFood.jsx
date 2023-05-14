@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { FoodItems } from "../../context/FoodsContext";
 import { db } from "../../../firebase";
 import { collection, addDoc } from "firebase/firestore";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 const AddFood = () => {
     const { foods } = FoodItems();
     const [name, setName] = useState("");
     const [category, setCategory] = useState("Divers");
     const [image, setImage] = useState("");
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const addFood = async (e) => {
         e.preventDefault(e);
@@ -22,6 +23,7 @@ const AddFood = () => {
         setName("");
         setCategory("");
         setImage("");
+        setIsModalOpen(false);
         // setTimeout(() => {
         //     navigate("/list");
         // }, "1000");
@@ -32,64 +34,69 @@ const AddFood = () => {
     return (
         <div>
             {/* The button to open modal */}
-            <label
-                htmlFor="my-modal-4"
+
+            <button
                 className="btn btn-primary btn-circle text-xl"
+                onClick={() => setIsModalOpen(!isModalOpen)}
             >
-                <FaPlus />
-            </label>
+                {isModalOpen ? <FaMinus /> : <FaPlus />}
+            </button>
 
-            {/* Put this part before </body> tag */}
-            <input type="checkbox" id="my-modal-4" className="modal-toggle" />
-            <label htmlFor="my-modal-4" className="modal cursor-pointer">
-                <label className="modal-box relative" htmlFor="">
-                    <label
-                        htmlFor="my-modal-4"
-                        className="btn btn-sm btn-circle absolute right-2 top-2"
-                    >
-                        ✕
-                    </label>
-                    <h3 className="text-lg font-semibold mb-5">
-                        Ajouter un article
-                    </h3>
-                    <div className="py-4">
-                        <input
-                            type="text"
-                            placeholder="Nom du produit"
-                            className="input input-bordered w-full max-w-xs"
-                            onChange={(e) => setName(e.target.value)}
-                            value={name}
-                        />
+            {isModalOpen && (
+                <div className="fixed inset-0 w-full h-screen grid place-items-center">
+                    <div
+                        className="absolute inset-0 bg-black/50"
+                        onClick={() => setIsModalOpen(!isModalOpen)}
+                    ></div>
+                    <div className="modal-wrapper bg-slate-700 mb-20 relative py-5 px-10 rounded-2xl shadow-xl">
+                        <div className="text-lg text-white mb-5">
+                            Ajouter un article
+                        </div>
+                        <div className="grid gap-5">
+                            <input
+                                type="text"
+                                placeholder="Nom du produit"
+                                className="input input-bordered"
+                                onChange={(e) => setName(e.target.value)}
+                                value={name}
+                            />
 
-                        <select
-                            className="select select-bordered w-full max-w-xs mt-5"
-                            onChange={(e) => setCategory(e.target.value)}
-                            value={category}
-                        >
-                            {catList &&
-                                catList.map((cat) => (
-                                    <option key={cat}>{cat}</option>
-                                ))}
-                        </select>
-
-                        <input
-                            type="text"
-                            placeholder="Image du produit"
-                            className="input input-bordered w-full max-w-xs mt-5"
-                            onChange={(e) => setImage(e.target.value)}
-                            value={image}
-                        />
-                        <div className="p-2 text-center mt-5">
-                            <button
-                                onClick={addFood}
-                                className="btn btn-primary"
+                            <select
+                                className="select select-bordered "
+                                onChange={(e) => setCategory(e.target.value)}
+                                value={category}
                             >
-                                Ajouter l'article
-                            </button>
+                                {catList &&
+                                    catList.map((cat) => (
+                                        <option key={cat}>{cat}</option>
+                                    ))}
+                            </select>
+
+                            <input
+                                type="text"
+                                placeholder="Image du produit"
+                                className="input input-bordered"
+                                onChange={(e) => setImage(e.target.value)}
+                                value={image}
+                            />
+                            <div className="flex p-2 gap-2">
+                                <button
+                                    onClick={addFood}
+                                    className="btn btn-primary"
+                                >
+                                    Ajouter l'article
+                                </button>
+                                <button
+                                    onClick={() => setIsModalOpen(false)}
+                                    className="btn btn-outline"
+                                >
+                                    Annuler
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </label>
-            </label>
+                </div>
+            )}
         </div>
     );
 };
