@@ -14,7 +14,7 @@ const AddFood = () => {
     const addFood = async (e) => {
         e.preventDefault(e);
         await addDoc(collection(db, "shopping"), {
-            name,
+            name: name.toLowerCase().trim(),
             category,
             image,
             incartforusers: [],
