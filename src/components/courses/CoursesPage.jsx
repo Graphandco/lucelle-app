@@ -38,7 +38,7 @@ const CoursesPage = () => {
 
     const removeFoodToBuy = async () => {
         if (window.confirm(`Voulez-vous vraiment vider la liste ?`)) {
-            foodToBuy.forEach((food) => {
+            foodNotInCart.forEach((food) => {
                 console.log(food);
                 updateDoc(doc(db, "shopping", food.id), {
                     incartforusers: food.incartforusers?.filter(
